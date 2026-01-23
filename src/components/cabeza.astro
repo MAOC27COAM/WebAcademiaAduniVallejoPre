@@ -1,136 +1,75 @@
 ---
-// Importa el logo si lo tienes en la carpeta assets
 import logo from '../assets/images/ico_vallejo.png';
 ---
 
-<header class="sticky top-0 z-50 bg-gradient-to-r from-blue-900 via-blue-800 to-red-600 text-white shadow-2xl border-b-4 border-yellow-400">
-  <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+<header class="sticky top-0 z-50 bg-aduni-void/90 backdrop-blur-md border-b border-white/10 overflow-hidden">
+  <div class="container mx-auto px-4 py-3 flex flex-col lg:flex-row items-center justify-between gap-4">
     
-    <!-- Logo y Título -->
-    <div class="flex items-center space-x-3 mb-3 md:mb-0">
-      <div class="relative">
-        <div class="absolute inset-0 bg-yellow-400 blur-xl opacity-30 rounded-full"></div>
+    <div class="flex items-center space-x-3">
+      <div class="relative group">
+        <div class="absolute inset-0 bg-aduni-crimson blur-lg opacity-20 group-hover:opacity-40 transition-opacity"></div>
         <img 
           src={logo.src} 
-          alt="Logo Aduni Vallejo" 
-          class="w-16 h-16 md:w-20 md:h-20 relative z-10 drop-shadow-2xl hover:scale-110 transition-transform duration-300"
+          alt="Logo Aduni" 
+          class="w-12 h-12 md:w-16 md:h-16 relative z-10 transition-transform duration-500 group-hover:rotate-12"
         />
       </div>
       
-      <div class="text-center md:text-left">
-        <h1 class="text-3xl md:text-4xl font-black tracking-tight leading-none flex items-center gap-1">
-          <span class="text-red-600 drop-shadow-[0_3px_3px_rgba(255,255,255,0.9)] animate-pulse-slow">A</span>
-          <span class="bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">cademia</span>
-          <span class="text-red-600 drop-shadow-[0_3px_3px_rgba(255,255,255,0.9)]">D</span>
-          <span class="bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">uni</span>
-          <span class="text-yellow-400 drop-shadow-[0_3px_3px_rgba(0,0,0,0.5)] font-extrabold">VALLEJO</span>
+      <div class="text-left">
+        <h1 class="text-xl md:text-2xl font-black tracking-tighter leading-none flex items-center gap-1">
+          <span class="text-aduni-crimson">A</span>
+          <span class="text-white">CADEMIA</span>
+          <span class="text-aduni-crimson ml-1">A</span>
+          <span class="text-white">DUNI</span>
+          <span class="text-aduni-neon-blue font-extrabold ml-1">VALLEJO</span>
         </h1>
-        <p class="text-[11px] uppercase tracking-[0.25em] text-yellow-300 font-bold mt-1 drop-shadow-md">
+        <p class="text-[9px] uppercase tracking-[0.3em] text-aduni-ice font-bold opacity-70">
           Nosotros Aseguramos Tu Vacante
         </p>
       </div>
     </div>
 
-    <!-- Navegación -->
-    <nav class="w-full md:w-auto">
-      <ul class="flex flex-wrap justify-center gap-3 md:gap-6 font-semibold text-sm md:text-base">
+    <nav class="w-full lg:w-auto">
+      <ul class="flex flex-wrap justify-center gap-2 md:gap-4 font-bold text-[10px] md:text-xs uppercase tracking-widest">
         <li>
-          <a 
-            href="#inicio" 
-            class="relative group px-3 py-2 hover:text-yellow-300 transition-all duration-300"
-          >
-            <span class="relative z-10">Conócenos</span>
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
-          </a>
+          <a href="#inicio" class="nav-link">Conócenos</a>
         </li>
         <li>
-          <a 
-            href="#modalidades" 
-            class="relative group px-3 py-2 hover:text-yellow-300 transition-all duration-300"
-          >
-            <span class="relative z-10">Modalidades</span>
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
-          </a>
+          <a href="#modalidades" class="nav-link">Modalidades</a>
         </li>
         <li>
-          <a 
-            href="#galeria" 
-            class="relative group px-3 py-2 hover:text-yellow-300 transition-all duration-300"
-          >
-            <span class="relative z-10">Galería de Éxito</span>
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
-          </a>
+          <a href="#galeria" class="nav-link">Cachimbos</a>
         </li>
         <li>
-          <a 
-            href="#ubicacion" 
-            class="relative group px-3 py-2 hover:text-yellow-300 transition-all duration-300"
-          >
-            <span class="relative z-10">Ubicacion</span>
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
-          </a>
-        </li>
-        <li>
-          <a 
-            href="#preguntas" 
-            class="relative group px-3 py-2 hover:text-yellow-300 transition-all duration-300"
-          >
-            <span class="relative z-10">Preguntas Frecuentes</span>
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
-          </a>
+          <a href="#ubicacion" class="nav-link text-aduni-neon-blue">Ubicación</a>
         </li>
       </ul>
     </nav>
-
-    <!-- Botón CTA (opcional) -->
-    <div class="hidden lg:block">
-      
-    </div>
-
   </div>
+
+  <div class="absolute bottom-0 left-0 h-[1px] w-full bg-gradient-to-r from-transparent via-aduni-crimson to-transparent scan-line"></div>
 </header>
 
 <style>
-  /* Animación de gradiente dinámico */
-  header {
-    background-size: 200% 200%;
-    animation: gradientMove 8s ease infinite;
-    position: relative;
+  @reference "../styles/global.css";
+
+  .nav-link {
+    @apply relative px-3 py-2 text-aduni-ice hover:text-white transition-colors duration-300;
   }
 
-  /* Efecto de brillo en el header */
-  header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.1),
-      transparent
-    );
-    animation: shine 3s infinite;
+  /* Línea animada más segura para móviles */
+  .scan-line {
+    animation: scan 4s linear infinite;
+    background-size: 200% 100%;
   }
 
-  @keyframes gradientMove {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+  @keyframes scan {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
   }
 
-  @keyframes shine {
-    0% { left: -100%; }
-    100% { left: 100%; }
-  }
-
-  @keyframes pulse-slow {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
-  }
-
-  .animate-pulse-slow {
-    animation: pulse-slow 2s ease-in-out infinite;
+  /* Evita que el texto se rompa en palabras feas */
+  h1 {
+    white-space: nowrap;
   }
 </style>
