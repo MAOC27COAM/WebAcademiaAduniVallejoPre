@@ -1,0 +1,47 @@
+---
+// Array de datos de ejemplo para los docentes
+const docentes = [
+  { nombre: "Prof. Juan Pérez", especialidad: "Matemáticas", desc: "Especialista en Álgebra con más de 10 años de experiencia preparando ingresantes.", color: "border-blue-900" },
+  { nombre: "Prof. María García", especialidad: "Lenguaje", desc: "Experta en comprensión lectora y razonamiento verbal para exámenes de admisión.", color: "border-red-600" },
+  { nombre: "Prof. Carlos Ruiz", especialidad: "Física", desc: "Metodología dinámica para el dominio de problemas complejos de cinemática y estática.", color: "border-blue-900" },
+  { nombre: "Prof. Ana Torres", especialidad: "Historia", desc: "Análisis crítico y didáctico de la historia universal y del Perú.", color: "border-red-600" },
+  { nombre: "Prof. Luis Ramos", especialidad: "Química", desc: "Docente con amplia trayectoria en formación pre-universitaria de alto nivel.", color: "border-blue-900" },
+  { nombre: "Prof. Elena Díaz", especialidad: "Biología", desc: "Enfoque práctico para el aprendizaje de ciencias naturales y anatomía.", color: "border-red-600" },
+  { nombre: "Prof. Ricardo Luna", especialidad: "Geometría", desc: "Dominio avanzado de resolución de problemas tipo examen de admisión.", color: "border-blue-900" },
+  { nombre: "Prof. Sofía Castro", especialidad: "Psicología", desc: "Orientación vocacional y manejo del estrés pre-examen.", color: "border-red-600" },
+];
+---
+
+<section id="docentes" class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="mb-12">
+      <h2 class="text-3xl md:text-4xl font-black text-blue-900 uppercase">Nuestros Docentes</h2>
+      <div class="h-1 w-20 bg-red-600 mt-2"></div>
+      <p class="text-gray-600 mt-4 max-w-2xl">Contamos con una plana docente altamente calificada y comprometida con el éxito académico de nuestros estudiantes.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {docentes.map((profe) => (
+        <div class={`group bg-slate-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border-b-8 ${profe.color}`}>
+          <div class="h-64 bg-slate-200 relative overflow-hidden flex items-center justify-center">
+            <div class="absolute inset-0 bg-blue-100 flex items-center justify-center group-hover:bg-blue-200 transition-colors">
+               <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-blue-900/20" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+               </svg>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-blue-900/80 p-4 text-white">
+               <p class="text-xs font-bold uppercase tracking-wider text-yellow-400">{profe.especialidad}</p>
+            </div>
+          </div>
+
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-blue-900 mb-2">{profe.nombre}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed italic">
+              "{profe.desc}"
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

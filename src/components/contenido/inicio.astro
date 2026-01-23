@@ -1,0 +1,56 @@
+---
+// Puedes importar una imagen real aquí más adelante
+import img from '../../assets/images/img_inicio2.png';
+---
+
+<section id="inicio" class="py-16 bg-slate-50">
+  <div class="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-12">
+    
+    <div class="w-full lg:w-1/2">
+      <div class="relative group">
+        <div class="absolute -inset-4 bg-blue-600/20 rounded-2xl transform -rotate-3 group-hover:rotate-0 transition-transform duration-500"></div>
+        
+        <div class="relative  h-[40spx] md:h-[680px] rounded-xl flex   justify-center overflow-hidden shadow-2xl border-4 border-white">
+          <img 
+          src={img.src} 
+          alt="Logo César Vallejo" 
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full lg:w-1/2 space-y-8">
+      <div>
+        <h2 class="text-4xl md:text-5xl font-black text-blue-900 mb-4 tracking-tight">
+          Aduni <span class="text-red-600">Vallejo</span>
+        </h2>
+        <div class="h-1.5 w-24 bg-yellow-400 rounded-full"></div>
+      </div>
+
+      <div class="prose prose-lg text-gray-700">
+        <h3 class="text-2xl font-bold text-blue-800">Sobre nuestra institución</h3>
+        <p class="leading-relaxed">
+          Somos una institución líder dedicada a la preparación pre-universitaria de alto rendimiento en Andahuaylas. 
+          Nuestro compromiso es brindar las herramientas y conocimientos necesarios para que cada estudiante alcance 
+          su máximo potencial y logre su ingreso a las universidades más competitivas del país.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 pt-4">
+        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-red-600">
+          <h4 class="font-bold text-red-600 text-xl mb-2">Misión</h4>
+          <p class="text-sm text-gray-600 italic">
+            "Formar estudiantes con sólidos conocimientos y valores éticos para liderar el cambio en la sociedad."
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-900">
+          <h4 class="font-bold text-blue-900 text-xl mb-2">Visión</h4>
+          <p class="text-sm text-gray-600 italic">
+            "Ser la academia referente a nivel nacional por nuestra excelencia académica y resultados comprobados."
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

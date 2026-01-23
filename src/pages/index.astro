@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+// Importaciones con la primera letra en Mayúscula (Buena práctica de Astro)
+import Cabeza from "../components/cabeza.astro";
+import Inicio from "../components/contenido/inicio.astro"; // Verifica que el archivo se llame incio.astro o inicio.astro
+import Modalidades from "../components/contenido/modalidades.astro";
+import Galeria from "../components/contenido/galeri_exito.astro";
+import Profesores from "../components/contenido/profesores.astro";
+import Matricula from "../components/contenido/matricula.astro";
+import Preguntas from "../components/contenido/preguntas.astro";
+import Ubicacion from "../components/contenido/ubicacion.astro";
+import Redes from "../components/contenido/redes.astro";
+import Cola from "../components/cola.astro";
+import Boton from "../components/boton.astro";
+---
+
+<Layout 
+	title="ADUNI VALLEJO | UNA DE LAS MEJORES ACADEMIAS DE ANDAHUAYLAS"
+	description="Descubre el lugar perfecto para prepararte e ingresar a las universidades"
+>
+	<Cabeza />
+	
+	<main>
+	  
+		<Inicio />
+		<Ubicacion/>
+		<Modalidades />
+		<Galeria />
+		
+		<Matricula />
+		<Redes/>
+		<Preguntas />
+
+	</main>
+
+	<Boton />
+	<Cola />
+</Layout>

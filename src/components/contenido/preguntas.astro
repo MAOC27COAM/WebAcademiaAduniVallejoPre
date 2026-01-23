@@ -1,0 +1,92 @@
+---
+const faqs = [
+  {
+    pregunta: "¿Qué servicios ofrece la Academia para las admisiones universitarias?",
+    respuesta: "Ofrecemos preparación integral con clases teóricas, seminarios prácticos, simulacros tipo examen de admisión y asesoría psicológica para asegurar tu ingreso."
+  },
+  {
+    pregunta: "¿Qué hace que Aduni Vallejo sea diferente de otras academias?",
+    respuesta: "Nuestra plana docente de élite, material didáctico actualizado y un sistema de seguimiento personalizado basado en los últimos exámenes de admisión."
+  },
+  {
+    pregunta: "¿Quiénes son los tutores y consejeros de la institución?",
+    respuesta: "Contamos con profesionales egresados de las mejores universidades del país, especializados en orientación vocacional y técnicas de estudio de alto rendimiento."
+  },
+  {
+    pregunta: "¿Cuál es la tasa de éxito de nuestros estudiantes?",
+    respuesta: "Mantenemos uno de los índices de ingreso más altos a nivel nacional, especialmente en carreras competitivas como Medicina, Ingeniería y Derecho."
+  },
+  {
+    pregunta: "¿Cómo empiezo mi preparación con Aduni Vallejo?",
+    respuesta: "Puedes iniciar inscribiéndote a través de nuestra sección de matrícula o visitando nuestras sedes físicas para una evaluación de nivel gratuita."
+  }
+];
+---
+
+<section id="preguntas" class="py-20 bg-slate-50">
+  <div class="container mx-auto px-4 max-w-4xl">
+    
+    <div class="mb-12 text-center md:text-left">
+      <h2 class="text-3xl md:text-4xl font-serif text-gray-800">Preguntas Frecuentes</h2>
+      <div class="h-1 w-20 bg-red-600 mt-4 mx-auto md:mx-0"></div>
+    </div>
+
+    <div class="space-y-4">
+      {faqs.map((faq, index) => (
+        <div class="border-b border-gray-300">
+          <button 
+            class="faq-button w-full flex justify-between items-center py-5 text-left text-gray-700 hover:text-blue-900 transition-colors focus:outline-none"
+            aria-expanded="false"
+          >
+            <span class="text-lg font-medium">{faq.pregunta}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          
+          <div class="faq-content hidden pb-5">
+            <p class="text-gray-600 leading-relaxed">
+              {faq.respuesta}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  // Lógica para abrir/cerrar el acordeón
+  const buttons = document.querySelectorAll('.faq-button');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const content = button.nextElementSibling;
+      const icon = button.querySelector('svg');
+      
+      // Cerrar otros abiertos (opcional, para estilo acordeón puro)
+      document.querySelectorAll('.faq-content').forEach(c => {
+        if (c !== content) {
+          c.classList.add('hidden');
+          c.previousElementSibling.querySelector('svg').classList.remove('rotate-180');
+        }
+      });
+
+      // Alternar el actual
+      content.classList.toggle('hidden');
+      icon.classList.toggle('rotate-180');
+    });
+  });
+</script>
+
+<style>
+ 
+  /* Estilo refinado para coincidir con la imagen e9c87d.png */
+  section {
+    font-family: 'Inter', sans-serif; /* O la fuente que prefieras */
+  }
+  
+  .faq-button:hover {
+    color: #1e3a8a; /* Azul oscuro Aduni */
+  }
+</style>

@@ -1,0 +1,79 @@
+---
+const redesSociales = [
+  { 
+    nombre: "Facebook", 
+    usuario: "Academia-Aduni-Vallejo", 
+    color: "bg-[#1877F2]", 
+    icono: "facebook",
+    link: "https://www.facebook.com/profile.php?id=100063217391727"
+  },
+  { 
+    nombre: "YouTube", 
+    usuario: "@AduniVallejoOficial", 
+    color: "bg-[#FF0000]", 
+    icono: "youtube",
+    link: "https://youtube.com"
+  },
+  { 
+    nombre: "TikTok", 
+    usuario: "academiaadunivallejo", 
+    color: "bg-[#000000]", 
+    icono: "tiktok",
+    link: "https://www.tiktok.com/@academiaadunivallejo"
+  }
+];
+---
+
+<section id="redes" class="py-16 bg-slate-900 overflow-hidden"">
+  <div class="container mx-auto px-4 text-center">
+    
+    <h2 class="text-logo-style text-4xl md:text-5xl mb-4">
+      SÍGUENOS EN <span class="text-white">REDES</span>
+    </h2>
+    <p class="text-gray-500 mb-12">Síguenos para ver contenido exclusivo y noticias</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {redesSociales.map((red) => (
+        <a 
+          href={red.link} 
+          target="_blank" 
+          class="group relative overflow-hidden rounded-2xl shadow-lg transition-transform hover:-translate-y-2"
+        >
+          <div class={`h-48 ${red.color} flex flex-col items-center justify-center p-6 text-white`}>
+            <h3 class="text-2xl font-black uppercase tracking-widest mb-4 drop-shadow-md">
+              {red.nombre}
+            </h3>
+            
+            <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center border-2 border-white/50 backdrop-blur-sm">
+               <span class="text-xs font-bold uppercase">Perfil</span>
+            </div>
+          </div>
+
+          <div class="bg-slate-50 p-4 border-t border-gray-100 group-hover:bg-blue-50 transition-colors">
+            <p class="text-blue-900 font-medium">{red.usuario}</p>
+            <span class="text-xs text-gray-400 uppercase font-bold tracking-tighter">Click para visitar</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  @reference "../../styles/global.css";
+
+  /* Refuerzo para el efecto de cristal en v4 */
+  .card-glass {
+    background: rgba(10, 14, 39, 0.4);
+    backdrop-filter: blur(12px);
+  }
+
+  /* Animación de entrada para las tarjetas */
+  a {
+    animation: fadeInCyber 0.8s ease-out forwards;
+    opacity: 0;
+  }
+  
+  a:nth-child(2) { animation-delay: 0.2s; }
+  a:nth-child(3) { animation-delay: 0.4s; }
+</style>

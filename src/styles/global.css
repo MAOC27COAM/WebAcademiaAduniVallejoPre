@@ -1,0 +1,609 @@
+@import "tailwindcss";
+@reference "tailwindcss";
+/* ============================================
+   VARIABLES DE COLOR - CYBER DARK FUSION
+   ============================================ */
+@theme {
+  /* Fondos Profundos */
+  --color-aduni-void: #000510;
+  --color-aduni-deep-navy: #0a0e27;
+  --color-aduni-midnight: #111827;
+  --color-aduni-space: #1a1f3a;
+  
+  /* Azules Eléctricos */
+  --color-aduni-electric: #0ea5e9;
+  --color-aduni-cyber-blue: #3b82f6;
+  --color-aduni-neon-blue: #00d9ff;
+  --color-aduni-ice: #7dd3fc;
+  
+  /* Rojos Intensos */
+  --color-aduni-crimson: #ef4444;
+  --color-aduni-plasma: #f43f5e;
+  --color-aduni-blood: #dc2626;
+  --color-aduni-neon-red: #ff006e;
+  
+  /* Púrpuras de Fusión */
+  --color-aduni-fusion: #8b5cf6;
+  --color-aduni-violet: #a855f7;
+  --color-aduni-magenta: #d946ef;
+  --color-aduni-pink-neon: #ff0080;
+  
+  /* Acentos Metálicos */
+  --color-aduni-chrome: #cbd5e1;
+  --color-aduni-steel-blue: #64748b;
+  --color-aduni-titanium: #475569;
+}
+
+/* ============================================
+   ESTILOS BASE
+   ============================================ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    
+    @apply bg-[#000510] text-slate-200 overflow-x-hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  * {
+    @apply border-slate-700;
+  }
+}
+
+/* ============================================
+   FONDOS CYBER DARK
+   ============================================ */
+
+/* Fondo principal con fusión azul-rojo */
+.bg-galaxy {
+  background: 
+    radial-gradient(ellipse at 20% 10%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 90%, rgba(239, 68, 68, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 30%, rgba(14, 165, 233, 0.1) 0%, transparent 45%),
+    linear-gradient(135deg, #000510 0%, #0a0e27 50%, #111827 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Partículas de energía cyber */
+.bg-galaxy::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 15% 25%, rgba(59, 130, 246, 0.6), transparent),
+    radial-gradient(1px 1px at 85% 15%, rgba(239, 68, 68, 0.5), transparent),
+    radial-gradient(2px 2px at 45% 65%, rgba(139, 92, 246, 0.4), transparent),
+    radial-gradient(1px 1px at 70% 85%, rgba(14, 165, 233, 0.6), transparent),
+    radial-gradient(2px 2px at 25% 75%, rgba(244, 63, 94, 0.5), transparent),
+    radial-gradient(1px 1px at 90% 45%, rgba(168, 85, 247, 0.4), transparent),
+    radial-gradient(1px 1px at 35% 15%, rgba(0, 217, 255, 0.6), transparent),
+    radial-gradient(2px 2px at 60% 35%, rgba(255, 0, 110, 0.4), transparent);
+  background-size: 300% 300%, 250% 250%, 280% 280%, 200% 200%, 260% 260%, 240% 240%, 220% 220%, 270% 270%;
+  background-position: 0% 0%;
+  animation: energy-pulse 100s linear infinite;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+@keyframes energy-pulse {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Fondo con grid cyber */
+.bg-cyber-grid {
+  background: 
+    linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+    radial-gradient(ellipse at 50% 0%, rgba(139, 92, 246, 0.08) 0%, transparent 60%),
+    #000510;
+  background-size: 50px 50px, 50px 50px, 100% 100%;
+  position: relative;
+}
+
+/* Variante intensa con plasma */
+.bg-galaxy-intense {
+  background: 
+    radial-gradient(ellipse at 25% 25%, rgba(59, 130, 246, 0.25) 0%, transparent 50%),
+    radial-gradient(ellipse at 75% 75%, rgba(239, 68, 68, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 55%),
+    linear-gradient(135deg, #0a0e27 0%, #000510 100%);
+  position: relative;
+}
+
+/* ============================================
+   EFECTOS DE TEXTO Y TIPOGRAFÍA
+   ============================================ */
+
+/* Logo con fusión de colores */
+.text-logo-style {
+  @apply font-black uppercase tracking-tight;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 30%, #ef4444 60%, #f43f5e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: 
+    drop-shadow(0 0 30px rgba(59, 130, 246, 0.6))
+    drop-shadow(0 0 50px rgba(239, 68, 68, 0.4))
+    drop-shadow(4px 4px 0px rgba(0, 5, 16, 0.9));
+  letter-spacing: 0.05em;
+  animation: logo-glow 4s ease-in-out infinite;
+}
+
+@keyframes logo-glow {
+  0%, 100% {
+    filter: 
+      drop-shadow(0 0 30px rgba(59, 130, 246, 0.6))
+      drop-shadow(0 0 50px rgba(239, 68, 68, 0.4))
+      drop-shadow(4px 4px 0px rgba(0, 5, 16, 0.9));
+  }
+  50% {
+    filter: 
+      drop-shadow(0 0 50px rgba(59, 130, 246, 0.8))
+      drop-shadow(0 0 70px rgba(239, 68, 68, 0.6))
+      drop-shadow(4px 4px 0px rgba(0, 5, 16, 0.9));
+  }
+}
+
+/* Texto neón azul eléctrico */
+.text-neon-blue {
+  @apply font-bold;
+  color: #00d9ff;
+  text-shadow: 
+    0 0 10px rgba(0, 217, 255, 0.8),
+    0 0 20px rgba(0, 217, 255, 0.6),
+    0 0 40px rgba(59, 130, 246, 0.4),
+    0 0 80px rgba(59, 130, 246, 0.2),
+    0 2px 6px rgba(0, 0, 0, 0.9);
+  animation: neon-flicker-blue 3s ease-in-out infinite;
+}
+
+@keyframes neon-flicker-blue {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.95; }
+  45%, 55% { opacity: 0.98; }
+}
+
+/* Texto neón rojo plasma */
+.text-neon-red {
+  @apply font-bold;
+  color: #ff006e;
+  text-shadow: 
+    0 0 10px rgba(255, 0, 110, 0.9),
+    0 0 20px rgba(255, 0, 110, 0.7),
+    0 0 40px rgba(239, 68, 68, 0.5),
+    0 0 80px rgba(239, 68, 68, 0.3),
+    0 2px 6px rgba(0, 0, 0, 0.9);
+  animation: neon-flicker-red 2.5s ease-in-out infinite;
+}
+
+@keyframes neon-flicker-red {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.93; }
+  48%, 52% { opacity: 0.97; }
+}
+
+/* Texto holográfico */
+.text-hologram {
+  @apply font-bold;
+  background: linear-gradient(90deg, 
+    #3b82f6 0%, 
+    #8b5cf6 20%, 
+    #d946ef 40%, 
+    #f43f5e 60%, 
+    #ef4444 80%, 
+    #3b82f6 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: hologram-shift 6s linear infinite;
+  filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.5));
+}
+
+@keyframes hologram-shift {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Texto con glitch effect */
+.text-glitch {
+  @apply font-black;
+  color: #3b82f6;
+  position: relative;
+  text-shadow: 
+    0 0 20px rgba(59, 130, 246, 0.6),
+    2px 2px 0px rgba(239, 68, 68, 0.5);
+}
+
+.text-glitch::before,
+.text-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.text-glitch::before {
+  color: #ef4444;
+  animation: glitch-1 2s infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  text-shadow: 2px 0 rgba(239, 68, 68, 0.8);
+}
+
+.text-glitch::after {
+  color: #0ea5e9;
+  animation: glitch-2 2s infinite;
+  clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+  text-shadow: -2px 0 rgba(14, 165, 233, 0.8);
+}
+
+@keyframes glitch-1 {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+@keyframes glitch-2 {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(2px, -2px); }
+  40% { transform: translate(2px, 2px); }
+  60% { transform: translate(-2px, -2px); }
+  80% { transform: translate(-2px, 2px); }
+}
+
+/* Texto cromo */
+.text-chrome {
+  @apply font-bold;
+  background: linear-gradient(135deg, #475569 0%, #cbd5e1 40%, #e2e8f0 50%, #cbd5e1 60%, #475569 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 15px rgba(203, 213, 225, 0.3));
+}
+
+/* ============================================
+   COMPONENTES Y TARJETAS
+   ============================================ */
+
+/* Tarjeta cyber con borde de energía */
+.card-glass {
+  @apply backdrop-blur-md rounded-2xl shadow-2xl;
+  background: linear-gradient(135deg, rgba(10, 14, 39, 0.6) 0%, rgba(0, 5, 16, 0.8) 100%);
+  border: 1px solid transparent;
+  background-image: 
+    linear-gradient(135deg, rgba(10, 14, 39, 0.6) 0%, rgba(0, 5, 16, 0.8) 100%),
+    linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(139, 92, 246, 0.3), rgba(239, 68, 68, 0.3));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow: 
+    0 10px 40px rgba(0, 5, 16, 0.6),
+    inset 0 1px 0 rgba(59, 130, 246, 0.1);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-glass::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(59, 130, 246, 0.05) 50%,
+    transparent 70%
+  );
+  animation: card-scan 4s linear infinite;
+}
+
+@keyframes card-scan {
+  0% { transform: translateX(-100%) translateY(-100%); }
+  100% { transform: translateX(100%) translateY(100%); }
+}
+
+.card-glass:hover {
+  transform: translateY(-8px);
+  background-image: 
+    linear-gradient(135deg, rgba(10, 14, 39, 0.7) 0%, rgba(0, 5, 16, 0.9) 100%),
+    linear-gradient(135deg, rgba(59, 130, 246, 0.6), rgba(139, 92, 246, 0.5), rgba(239, 68, 68, 0.6));
+  box-shadow: 
+    0 20px 60px rgba(59, 130, 246, 0.3),
+    0 0 80px rgba(139, 92, 246, 0.2),
+    0 0 100px rgba(239, 68, 68, 0.2);
+}
+
+/* Tarjeta con energía pulsante */
+.card-energy {
+  @apply backdrop-blur-sm rounded-2xl;
+  background: rgba(0, 5, 16, 0.7);
+  border: 2px solid;
+  border-image: linear-gradient(135deg, #3b82f6, #8b5cf6, #ef4444) 1;
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.5),
+    inset 0 0 30px rgba(59, 130, 246, 0.05);
+  animation: energy-border 3s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+@keyframes energy-border {
+  0%, 100% {
+    box-shadow: 
+      0 10px 40px rgba(59, 130, 246, 0.3),
+      inset 0 0 30px rgba(59, 130, 246, 0.05);
+  }
+  50% {
+    box-shadow: 
+      0 10px 50px rgba(239, 68, 68, 0.4),
+      inset 0 0 40px rgba(239, 68, 68, 0.08);
+  }
+}
+
+.card-energy:hover {
+  transform: scale(1.02);
+  box-shadow: 
+    0 15px 60px rgba(139, 92, 246, 0.5),
+    inset 0 0 50px rgba(139, 92, 246, 0.1);
+}
+
+/* ============================================
+   BOTONES CYBER
+   ============================================ */
+
+/* Botón principal con fusión */
+.btn-primary {
+  @apply px-8 py-4 rounded-full font-bold uppercase tracking-wider;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ef4444 100%);
+  color: white;
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  box-shadow: 
+    0 10px 30px rgba(59, 130, 246, 0.4),
+    0 0 40px rgba(139, 92, 246, 0.3),
+    0 0 60px rgba(239, 68, 68, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 
+    0 15px 50px rgba(59, 130, 246, 0.6),
+    0 0 80px rgba(139, 92, 246, 0.5),
+    0 0 100px rgba(239, 68, 68, 0.4);
+}
+
+/* Botón neón azul */
+.btn-neon-blue {
+  @apply px-8 py-4 rounded-full font-bold uppercase tracking-wider;
+  background: rgba(0, 5, 16, 0.8);
+  color: #00d9ff;
+  border: 2px solid #00d9ff;
+  box-shadow: 
+    0 0 20px rgba(0, 217, 255, 0.5),
+    0 0 40px rgba(0, 217, 255, 0.3),
+    inset 0 0 20px rgba(0, 217, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.btn-neon-blue:hover {
+  background: rgba(0, 217, 255, 0.1);
+  box-shadow: 
+    0 0 30px rgba(0, 217, 255, 0.8),
+    0 0 60px rgba(0, 217, 255, 0.5),
+    0 0 100px rgba(59, 130, 246, 0.3),
+    inset 0 0 30px rgba(0, 217, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Botón neón rojo */
+.btn-neon-red {
+  @apply px-8 py-4 rounded-full font-bold uppercase tracking-wider;
+  background: rgba(0, 5, 16, 0.8);
+  color: #ff006e;
+  border: 2px solid #ff006e;
+  box-shadow: 
+    0 0 20px rgba(255, 0, 110, 0.5),
+    0 0 40px rgba(255, 0, 110, 0.3),
+    inset 0 0 20px rgba(255, 0, 110, 0.1);
+  transition: all 0.3s ease;
+}
+
+.btn-neon-red:hover {
+  background: rgba(255, 0, 110, 0.1);
+  box-shadow: 
+    0 0 30px rgba(255, 0, 110, 0.8),
+    0 0 60px rgba(255, 0, 110, 0.5),
+    0 0 100px rgba(239, 68, 68, 0.3),
+    inset 0 0 30px rgba(255, 0, 110, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   EFECTOS ESPECIALES
+   ============================================ */
+
+/* Líneas de energía */
+.energy-lines {
+  position: relative;
+  overflow: hidden;
+}
+
+.energy-lines::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(59, 130, 246, 0.2) 30%,
+    rgba(139, 92, 246, 0.3) 50%,
+    rgba(239, 68, 68, 0.2) 70%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  animation: energy-sweep 2s infinite;
+}
+
+@keyframes energy-sweep {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+
+/* Resplandor cyber */
+.cyber-glow {
+  position: relative;
+}
+
+.cyber-glow::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.15) 0%,
+    rgba(139, 92, 246, 0.1) 40%,
+    rgba(239, 68, 68, 0.05) 70%,
+    transparent 100%
+  );
+  filter: blur(60px);
+  pointer-events: none;
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* Partículas flotantes cyber */
+.cyber-particles {
+  position: relative;
+}
+
+.cyber-particles::before,
+.cyber-particles::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(40px);
+  animation: particle-float 10s ease-in-out infinite;
+}
+
+.cyber-particles::before {
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+  top: 20%;
+  left: 15%;
+}
+
+.cyber-particles::after {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(239, 68, 68, 0.15) 0%, transparent 70%);
+  bottom: 15%;
+  right: 20%;
+  animation-delay: 5s;
+}
+
+@keyframes particle-float {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  25% { transform: translateY(-30px) translateX(20px); }
+  50% { transform: translateY(-15px) translateX(-20px); }
+  75% { transform: translateY(-40px) translateX(10px); }
+}
+
+/* ============================================
+   DIVISORES
+   ============================================ */
+
+.divider-cyber {
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #3b82f6 20%,
+    #8b5cf6 40%,
+    #ef4444 60%,
+    #f43f5e 80%,
+    transparent 100%
+  );
+  box-shadow: 
+    0 0 20px rgba(59, 130, 246, 0.5),
+    0 0 40px rgba(139, 92, 246, 0.3),
+    0 0 60px rgba(239, 68, 68, 0.2);
+  animation: divider-glow 3s ease-in-out infinite;
+}
+
+@keyframes divider-glow {
+  0%, 100% {
+    box-shadow: 
+      0 0 20px rgba(59, 130, 246, 0.5),
+      0 0 40px rgba(139, 92, 246, 0.3);
+  }
+  50% {
+    box-shadow: 
+      0 0 30px rgba(239, 68, 68, 0.6),
+      0 0 60px rgba(139, 92, 246, 0.4);
+  }
+}
+
+/* ============================================
+   ANIMACIONES
+   ============================================ */
+
+.fade-in-cyber {
+  animation: fadeInCyber 1s ease-out;
+}
+
+@keyframes fadeInCyber {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}

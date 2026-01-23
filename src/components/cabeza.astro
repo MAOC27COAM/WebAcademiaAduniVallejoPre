@@ -1,0 +1,136 @@
+---
+// Importa el logo si lo tienes en la carpeta assets
+import logo from '../assets/images/ico_vallejo.png';
+---
+
+<header class="sticky top-0 z-50 bg-gradient-to-r from-blue-900 via-blue-800 to-red-600 text-white shadow-2xl border-b-4 border-yellow-400">
+  <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+    
+    <!-- Logo y Título -->
+    <div class="flex items-center space-x-3 mb-3 md:mb-0">
+      <div class="relative">
+        <div class="absolute inset-0 bg-yellow-400 blur-xl opacity-30 rounded-full"></div>
+        <img 
+          src={logo.src} 
+          alt="Logo Aduni Vallejo" 
+          class="w-16 h-16 md:w-20 md:h-20 relative z-10 drop-shadow-2xl hover:scale-110 transition-transform duration-300"
+        />
+      </div>
+      
+      <div class="text-center md:text-left">
+        <h1 class="text-3xl md:text-4xl font-black tracking-tight leading-none flex items-center gap-1">
+          <span class="text-red-600 drop-shadow-[0_3px_3px_rgba(255,255,255,0.9)] animate-pulse-slow">A</span>
+          <span class="bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">cademia</span>
+          <span class="text-red-600 drop-shadow-[0_3px_3px_rgba(255,255,255,0.9)]">D</span>
+          <span class="bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">uni</span>
+          <span class="text-yellow-400 drop-shadow-[0_3px_3px_rgba(0,0,0,0.5)] font-extrabold">VALLEJO</span>
+        </h1>
+        <p class="text-[11px] uppercase tracking-[0.25em] text-yellow-300 font-bold mt-1 drop-shadow-md">
+          Nosotros Aseguramos Tu Vacante
+        </p>
+      </div>
+    </div>
+
+    <!-- Navegación -->
+    <nav class="w-full md:w-auto">
+      <ul class="flex flex-wrap justify-center gap-3 md:gap-6 font-semibold text-sm md:text-base">
+        <li>
+          <a 
+            href="#inicio" 
+            class="relative group px-3 py-2 hover:text-yellow-300 transition-all duration-300"
+          >
+            <span class="relative z-10">Conócenos</span>
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
+          </a>
+        </li>
+        <li>
+          <a 
+            href="#modalidades" 
+            class="relative group px-3 py-2 hover:text-yellow-300 transition-all duration-300"
+          >
+            <span class="relative z-10">Modalidades</span>
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
+          </a>
+        </li>
+        <li>
+          <a 
+            href="#galeria" 
+            class="relative group px-3 py-2 hover:text-yellow-300 transition-all duration-300"
+          >
+            <span class="relative z-10">Galería de Éxito</span>
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
+          </a>
+        </li>
+        <li>
+          <a 
+            href="#ubicacion" 
+            class="relative group px-3 py-2 hover:text-yellow-300 transition-all duration-300"
+          >
+            <span class="relative z-10">Ubicacion</span>
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
+          </a>
+        </li>
+        <li>
+          <a 
+            href="#preguntas" 
+            class="relative group px-3 py-2 hover:text-yellow-300 transition-all duration-300"
+          >
+            <span class="relative z-10">Preguntas Frecuentes</span>
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300"></span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Botón CTA (opcional) -->
+    <div class="hidden lg:block">
+      
+    </div>
+
+  </div>
+</header>
+
+<style>
+  /* Animación de gradiente dinámico */
+  header {
+    background-size: 200% 200%;
+    animation: gradientMove 8s ease infinite;
+    position: relative;
+  }
+
+  /* Efecto de brillo en el header */
+  header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    animation: shine 3s infinite;
+  }
+
+  @keyframes gradientMove {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  @keyframes shine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 2s ease-in-out infinite;
+  }
+</style>

@@ -1,0 +1,49 @@
+---
+// Definimos los números de contacto
+const whatsappNumber = "51935894395"; // Reemplaza con el número real
+const phoneNumber = "  950662755";      // Reemplaza con el número real
+const mensaje = encodeURIComponent("¡Hola! Deseo recibir información sobre las matrículas en Academia Aduni Vallejo.");
+---
+
+<div class="fixed bottom-6 right-6 z-[100] flex flex-col gap-4">
+  
+  <a 
+    href={`tel:${phoneNumber}`}
+    class="bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 group relative flex items-center justify-center"
+    title="Llámanos"
+  >
+    <span class="absolute right-16 bg-blue-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+      Llámanos ahora
+    </span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+    </svg>
+  </a>
+
+  <a 
+    href={`https://wa.me/${whatsappNumber}?text=${mensaje}`}
+    target="_blank"
+    class="bg-[#25D366] hover:bg-[#128C7E] text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 group relative flex items-center justify-center animate-bounce-subtle"
+    title="WhatsApp"
+  >
+    <span class="absolute right-16 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+      Escríbenos por WhatsApp
+    </span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.481 5.229 3.481 8.404c0 6.556-5.332 11.888-11.888 11.888-2.003 0-3.971-.507-5.717-1.469l-6.267 1.694zm6.273-3.804l.449.266c1.472.873 3.17 1.334 4.914 1.334 5.093 0 9.237-4.144 9.237-9.237 0-2.467-.961-4.786-2.706-6.531s-4.064-2.705-6.531-2.705c-5.093 0-9.237 4.144-9.237 9.237 0 1.954.613 3.86 1.772 5.468l.292.404-1.01 3.692 3.79-.931z"/>
+    </svg>
+  </a>
+
+</div>
+
+<style>
+ 
+  /* Animación sutil para el botón de WhatsApp */
+  @keyframes bounce-subtle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  .animate-bounce-subtle {
+    animation: bounce-subtle 3s infinite ease-in-out;
+  }
+</style>

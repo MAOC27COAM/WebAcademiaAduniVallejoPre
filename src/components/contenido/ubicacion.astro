@@ -1,0 +1,75 @@
+---
+// src/components/contenido/Ubicacion.astro
+import captura from "../../assets/images/captura_vallejo.jpeg";
+---
+
+<section id="ubicacion" class="py-20 bg-aduni-void relative overflow-hidden">
+  <div class="container mx-auto px-4">
+    <h2 class="text-logo-style text-4xl mb-12 text-center md:text-left">
+      NOS ENCONTRAMOS <span class="text-white">EN</span>
+    </h2>
+
+    <div class="flex flex-col md:flex-row gap-6 items-stretch max-w-6xl mx-auto">
+      
+      <div class="md:w-[30%] group">
+        <div class="card-glass h-full relative overflow-hidden rounded-xl border border-white/10">
+          <img 
+            src={captura.src}
+            alt="Sede Aduni Vallejo" 
+            class="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 transition-all duration-500"
+          />
+          <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-aduni-void to-transparent">
+            <p class="text-aduni-ice font-black italic text-xs">SEDE CENTRAL</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="md:w-2/3 flex flex-col gap-4">
+        <div class="flex items-center gap-3 text-white mb-2">
+          <span class="text-aduni-crimson">📍</span>
+          <p class="font-bold tracking-wider">Av. El Ejército 245, Andahuaylas 03701</p>
+        </div>
+
+        <div class="relative flex-grow min-h-[400px] rounded-2xl overflow-hidden border-2 border-aduni-crimson/30 shadow-[0_0_30px_rgba(239,68,68,0.1)]">
+          <div id="map" class="h-full w-full z-0"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script is:inline>
+  function initMap() {
+    const lat = -13.658124365650714 ;
+    const lng =    -73.38393737144817;
+    const map = L.map('map').setView([lat, lng], 16);
+
+    // MODIFICACIÓN DE COLOR: Usamos "voyager_labels_under" para más contraste y visibilidad
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; OpenStreetMap'
+    }).addTo(map);
+
+    const customIcon = L.divIcon({
+      className: 'custom-marker',
+      html: `<div class="w-6 h-6 bg-aduni-crimson rounded-full border-2 border-white shadow-[0_0_10px_#ef4444] animate-pulse"></div>`,
+      iconSize: [24, 24]
+    });
+
+    L.marker([lat, lng], { icon: customIcon }).addTo(map);
+  }
+  document.addEventListener('DOMContentLoaded', initMap);
+</script>
+
+<style>
+@reference "../../styles/global.css";
+  /* Ajuste para que el mapa no se vea gris al cargar */
+  #map { background: #000510; }
+  
+  /* Estilo para los popups de Leaflet para que no rompan la estética */
+  :global(.leaflet-popup-content-wrapper) {
+    @apply bg-white rounded-lg border-2 border-aduni-electric;
+  }
+</style>
