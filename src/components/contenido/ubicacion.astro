@@ -16,7 +16,7 @@ import captura from "../../assets/images/captura_vallejo.jpeg";
           <img 
             src={captura.src}
             alt="Sede Aduni Vallejo" 
-            class="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 transition-all duration-500"
+            class="w-full h-full object-cover  group-hover:grayscale-0 transition-all duration-500"
           />
           <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-aduni-void to-transparent">
             <p class="text-aduni-ice font-black italic text-xs">SEDE CENTRAL</p>
@@ -43,33 +43,61 @@ import captura from "../../assets/images/captura_vallejo.jpeg";
 
 <script is:inline>
   function initMap() {
-    const lat = -13.658124365650714 ;
-    const lng =    -73.38393737144817;
-    const map = L.map('map').setView([lat, lng], 16);
+    const lat = -13.658124365650714;
+    const lng = -73.38393737144817;
+    
+    // 1. Verificamos que el contenedor exista
+    const mapContainer = document.getElementById('map');
+    if (!mapContainer) return;
 
-    // MODIFICACIÓN DE COLOR: Usamos "voyager_labels_under" para más contraste y visibilidad
+    const map = L.map('map', {
+      zoomControl: true,
+      scrollWheelZoom: false // Mejora la navegación en móvil
+    }).setView([lat, lng], 16);
+
     L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png', {
       attribution: '&copy; OpenStreetMap'
     }).addTo(map);
 
     const customIcon = L.divIcon({
       className: 'custom-marker',
-      html: `<div class="w-6 h-6 bg-aduni-crimson rounded-full border-2 border-white shadow-[0_0_10px_#ef4444] animate-pulse"></div>`,
+      html: `<div class="w-6 h-6 bg-[#ef4444] rounded-full border-2 border-white shadow-[0_0_10px_#ef4444] animate-pulse"></div>`,
       iconSize: [24, 24]
     });
 
     L.marker([lat, lng], { icon: customIcon }).addTo(map);
+
+    // 2. TRUCO PARA MÓVILES: Forzar el redimensionamiento después de 200ms
+    setTimeout(() => {
+      map.invalidateSize();
+    }, 200);
   }
-  document.addEventListener('DOMContentLoaded', initMap);
+
+  // Usar 'load' en lugar de DOMContentLoaded asegura que todos los recursos (CSS/JS) estén listos
+  window.addEventListener('load', initMap);
 </script>
 
 <style>
-@reference "../../styles/global.css";
-  /* Ajuste para que el mapa no se vea gris al cargar */
-  #map { background: #000510; }
+  @reference "../../styles/global.css";
   
-  /* Estilo para los popups de Leaflet para que no rompan la estética */
+  #map { 
+    background: #000510; 
+    width: 100%;
+    /* 3. IMPORTANTE: Altura fija obligatoria para que no colapse en celulares */
+    height: 100%; 
+    min-height: 350px; 
+  }
+
+  /* Aseguramos que el contenedor del mapa tenga espacio en móvil */
+  @media (max-width: 768px) {
+    .relative.flex-grow {
+      min-height: 350px !important;
+      height: 350px;
+    }
+  }
+
   :global(.leaflet-popup-content-wrapper) {
-    @apply bg-white rounded-lg border-2 border-aduni-electric;
+    background: white;
+    border-radius: 8px;
   }
 </style>
