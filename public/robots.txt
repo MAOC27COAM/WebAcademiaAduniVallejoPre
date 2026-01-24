@@ -1,0 +1,6 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Indica la ubicación del sitemap para que Google lo encuentre rápido
+Sitemap: https://https://wondrous-beignet-6e3d99.netlify.app//sitemap-index.xml
